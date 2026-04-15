@@ -82,7 +82,7 @@ export const celebrityList = [
   "John Boyega",
 ];
 
-// At server startup, filter celebrities to only those with a valid image
+// On startup, filter celebrities for only those with an image
 import { getCelebrityImage } from "./wikipedia";
 let filteredCelebrityList = [];
 let filteringPromise = null;
