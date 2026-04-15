@@ -9,7 +9,9 @@ export default function CelebrityGridItem({
   isDisabled,
 }) {
   // Use a smaller font if the name is long (more than 13 chars or 3+ words)
-  const isLongName = name.length > 13 || name.split(" ").length > 2;
+  console.log(`Rendering ${name} with state ${state} and isDisabled=${isDisabled}`);
+  //const isLongName = name.length > 13 || name.split(" ").length > 2;
+  const isLongName = "";
   const [imgUrl, setImgUrl] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -23,6 +25,7 @@ export default function CelebrityGridItem({
         const response = await fetch(
           `/api/image?name=${encodeURIComponent(name)}`,
         );
+        console.log(`Fetching image for ${name}:`, response);
         if (!response.ok) {
           setError(true);
           return;
