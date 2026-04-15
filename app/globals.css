@@ -1,4 +1,44 @@
+/* Dynamic glow effect for movie titles in quotes */
+/* 3-hole punch effect on the left side */
+.three-hole-punch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1000;
+}
+.three-hole-punch .hole {
+  position: absolute;
+  left: 16px;
+  width: 22px;
+  height: 22px;
+  background: #222;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow:
+    0 2px 8px 0 #bbb2 inset,
+    0 0 0 2px #bbb;
+}
+.three-hole-punch .hole.top {
+  top: 110px;
+}
+.three-hole-punch .hole.middle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.three-hole-punch .hole.bottom {
+  bottom: 110px;
+}
+
 @import "tailwindcss";
+
+/* Focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
 
 :root {
   --background: #ffffff;
@@ -20,7 +60,168 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #111;
+  font-family: "Courier New", Courier, "Liberation Mono", "Menlo", "monospace";
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+}
+
+.script-heading {
+  font-family: inherit;
+  font-size: 2.7rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 2.2rem 0 1.5rem 0;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.script-scene {
+  font-family: inherit;
+  font-size: 2.1rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 2rem 0 1.2rem 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.script-action {
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1.2rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #111;
+}
+
+.script-dialogue {
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 2rem 0 2.5rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+  color: #111;
+}
+
+.script-panel {
+  background: #fff;
+  border: 2px solid #111;
+  border-radius: 2.5rem;
+  box-shadow: none;
+  padding: 1.1rem 1.1rem 1.3rem 1.1rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.script-btn {
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 2px solid #111;
+  color: #111;
+  border-radius: 1.5rem;
+  padding: 0.9rem 3.2rem;
+  margin: 0.5rem 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+}
+.script-btn:hover:not(:disabled) {
+  background: #f5f5f5;
+  color: #111;
+}
+.script-btn span {
+  position: relative;
+  z-index: 1;
+}
+.script-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.script-heading {
+  font-family: inherit;
+  font-size: 2.1rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1.1rem 0 0.7rem 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.script-scene {
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.6rem 0 0.4rem 0;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.script-action {
+  font-family: inherit;
+  font-size: 1.05rem;
+  text-align: center;
+  margin: 0.3rem 0 0.6rem 0;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.script-dialogue {
+  font-family: inherit;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0.6rem 0 1.1rem 0;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
