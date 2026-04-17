@@ -1,5 +1,4 @@
-import clientPromise from "@/utils/mongodb";
-import { ObjectId } from "mongodb";
+import clientPromise from "@/utils/mongoDB";
 
 /**
  * Save user stats to the database

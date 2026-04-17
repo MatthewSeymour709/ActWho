@@ -37,7 +37,7 @@ export async function GET(request) {
     // Cache result (even if null)
     imageCache.set(name, imageUrl);
     return NextResponse.json({ imageUrl });
-  } catch (err) {
+  } catch {
     return NextResponse.json({ imageUrl: null });
   }
 }

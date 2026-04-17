@@ -15,7 +15,6 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: true,
-    optimizeImages: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
