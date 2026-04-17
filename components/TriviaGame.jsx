@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import {
   getOrCreateUserId,
   canPlayToday,
@@ -20,14 +19,12 @@ export default function TriviaGame() {
   const [celebStates, setCelebStates] = useState({});
   const [roundsPlayed, setRoundsPlayed] = useState(1);
   const [message, setMessage] = useState("");
-  const [canPlay, setCanPlay] = useState(true);
   const [timeUntilNextGame, setTimeUntilNextGame] = useState(null);
 
   // Initialize game
   // Extracted for retry support
   const initializeGame = async () => {
     const playableToday = canPlayToday();
-    setCanPlay(playableToday);
 
     if (!playableToday) {
       const lastPlayed = getLastPlayedTime();
@@ -72,7 +69,6 @@ export default function TriviaGame() {
 
   useEffect(() => {
     initializeGame();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Cycles: normal -> check -> cross -> normal
@@ -112,7 +108,7 @@ export default function TriviaGame() {
 
   // Find the currently checkmarked celebrity (if any)
   const checkedCelebrity = Object.entries(celebStates).find(
-    ([_, v]) => v === "check",
+    ([, v]) => v === "check",
   );
   const checkedName = checkedCelebrity ? checkedCelebrity[0] : null;
 
